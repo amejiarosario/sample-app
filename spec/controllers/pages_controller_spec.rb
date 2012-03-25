@@ -24,6 +24,13 @@ describe PagesController do
     end
   end
   
+  describe "GET 'help'" do
+    it "returns http success" do
+      get 'help'
+      response.should be_success
+    end
+  end
+  
   it 'shoud have the right title' do
     get 'home'
     response.should have_selector("title",:content=>'Ruby on Rails Sample App | Home')
