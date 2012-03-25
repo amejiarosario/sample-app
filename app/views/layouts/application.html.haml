@@ -1,0 +1,33 @@
+!!! html
+%html
+	%head
+		%title= "Ruby on Rails Sample App | #{@title}"
+		= javascript_include_tag "application"
+		= render "layouts/stylesheets"
+		= csrf_meta_tags
+	%body
+		%div.container
+
+			-# Header
+			%header 
+				- logo = image_tag("rails.png", :alt=>'Sample App', :class=>'round')
+				= link_to logo, root_path
+				%nav.round
+					%ul
+						%li= link_to 'Home', root_path
+						%li= link_to 'About', about_path
+						%li= link_to 'Help', help_path	
+						%li= link_to 'Sign in', '#'
+
+			-# Main Section
+			%section.round
+				= yield
+
+			-# Footer
+			%footer
+				%nav.round
+					%ul
+						%li= link_to "About","#"
+						%li= link_to "Contact", "#"
+						%li
+							%a= link_to "News","http://www.adrianmejiarosario.com/"
